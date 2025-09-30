@@ -1,5 +1,5 @@
 body {
-    background-color: bisque;
+    background-color: #FA812F;
     font-size: 16px;
     text-align: center;
 }
@@ -16,11 +16,23 @@ h1 {
 .bookcard {
     display: flex;
     flex-direction: column;
+    width: 75%;
     border: 1px solid black;
-    padding: 10px;
+    margin: 10px auto;
+    padding: 5px;
     background-color: white;
     margin-bottom: 10px;
     border-radius: 10px;
+}
+
+.bookcard .butt {
+    width: 50%;
+    margin: 10px auto;
+}
+
+.bookcard p {
+    font-weight: 800;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 dialog {
     background-color: gray;

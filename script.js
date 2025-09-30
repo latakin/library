@@ -73,7 +73,7 @@ function updatePage() {
             removeBook.addEventListener('click', () => book.delet() )
 
             const toggleRead = document.createElement('button');
-            toggleRead.textContent = 'Read Status';
+            toggleRead.textContent = 'Change Read Status';
             toggleRead.setAttribute('class', 'butt');
             toggleRead.addEventListener('click', () => book.read())
 
