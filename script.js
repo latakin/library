@@ -41,9 +41,13 @@ function Books(title, author, pages, haveRead) {
 }
 
 Books.prototype.delet = function () {
-    myLibrary.splice(this.id, 1);
-    console.log(myLibrary);
-    updatePage();
+    const index = myLibrary.findIndex(book => book.id === this.id);
+    if (index !== -1) {
+        myLibrary.splice(index, 1);
+        console.log(myLibrary);
+        updatePage();
+    }
+    
 }
 
 Books.prototype.read = function () {
