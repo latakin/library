@@ -14,7 +14,7 @@ cancelForm.addEventListener('click', ()=> {
 submitForm.addEventListener('click', (event) => {
     event.preventDefault();
 
-    const formData = new FormData(bookForm);
+    let formData = new FormData(bookForm);
     let title = formData.get('title');
     let author = formData.get('author');
     let pages = formData.get('pages');
@@ -25,6 +25,7 @@ submitForm.addEventListener('click', (event) => {
     console.log(newBook)
     addBooks(newBook);
     updatePage();
+    bookForm.reset();
     console.log(myLibrary)
     dialog.close();    
 

@@ -38,7 +38,8 @@ h1 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 dialog {
-    background-color: gray;
+    background-color: #fd58dc;
+    border: 2px solid white;
 }
 
 dialog form {
