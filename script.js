@@ -13,21 +13,29 @@ cancelForm.addEventListener('click', ()=> {
 
 submitForm.addEventListener('click', (event) => {
     event.preventDefault();
-
     let formData = new FormData(bookForm);
     let title = formData.get('title');
     let author = formData.get('author');
     let pages = formData.get('pages');
     let haveread = formData.get('haveRead');
     haveread.toLowerCase();
-
-    const newBook = new Books(title, author, pages, haveread);
-    console.log(newBook)
-    addBooks(newBook);
-    updatePage();
-    bookForm.reset();
-    console.log(myLibrary)
-    dialog.close();    
+    
+    
+    if(bookForm.checkValidity()) {
+    
+         const newBook = new Books(title, author, pages, haveread);
+        console.log(newBook)
+        addBooks(newBook);
+        updatePage();
+        bookForm.reset();
+        console.log(myLibrary)
+        dialog.close();   
+     
+    
+    } else {
+        bookForm.reportValidity();
+    }
+    
 
 
 })
