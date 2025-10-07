@@ -23,7 +23,7 @@ submitForm.addEventListener('click', (event) => {
     
     if(bookForm.checkValidity()) {
     
-         const newBook = new Books(title, author, pages, haveread);
+         const newBook = new Book(title, author, pages, haveread);
         console.log(newBook)
         addBooks(newBook);
         updatePage();
@@ -40,33 +40,40 @@ submitForm.addEventListener('click', (event) => {
 
 })
 
-function Books(title, author, pages, haveRead) {
-    this.id = crypto.randomUUID();
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.haveRead = haveRead;
-}
-
-Books.prototype.delet = function () {
-    const index = myLibrary.findIndex(book => book.id === this.id);
-    if (index !== -1) {
-        myLibrary.splice(index, 1);
-        console.log(myLibrary);
-        updatePage();
+class Book {
+    constructor(title, author, pages, haveRead) {
+        this.id = crypto.randomUUID();
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.haveRead = haveRead;
     }
+
+    delet() {
+        const index = myLibrary.findIndex(book => book.id === this.id);
+        if (index !== -1) {
+            myLibrary.splice(index, 1);
+            console.log(myLibrary);
+            updatePage();
+        }
+    
+    }
+
+    read() {
+        if (this.haveRead === "yes") {
+            this.haveRead = "no";
+        
+        } else {
+            this.haveRead = 'yes';
+        }
+        updatePage();
+}
     
 }
 
-Books.prototype.read = function () {
-    if (this.haveRead === "yes") {
-        this.haveRead = "no";
-        
-    } else {
-         this.haveRead = 'yes';
-    }
-    updatePage();
-}
+
+
+
 
 
 function addBooks(bookName) {
@@ -108,8 +115,8 @@ function updatePage() {
         )
        
 }
-const atomic = new Books('Atomic Habits', 'James Clear', 500, "no");
-const rich = new Books('Rich Dad', 'Robert Kiyosaki', 400, "no");
+const atomic = new Book('Atomic Habits', 'James Clear', 500, "no");
+const rich = new Book('Rich Dad', 'Robert Kiyosaki', 400, "no");
 addBooks(atomic);
 addBooks(rich);
 updatePage();
